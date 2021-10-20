@@ -1,0 +1,94 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
+
+body{
+  background-image: linear-gradient(to bottom, rgb(50, 54, 57), rgb(65, 135, 75), #f5f5f5);
+}
+
+.card {
+  border: none;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  margin-bottom: 30px;
+}
+.w-60 {
+  width: 60px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.social-links li a {
+  -webkit-border-radius: 50%;
+  background-color: rgba(89,206,181,.85);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 30px;
+  font-size: 12px;
+}
+a {
+  color: #707070;
+}
+
+.btn-primary {
+  background-color: orange;
+  border-color: orange;
+}
+
+.btn-secondary {
+  background-color: lightgray;
+  border-color: lightgray;
+
+}
+
+.btn-primary:hover {
+  background-color: darkorange;
+  border-color: darkorange;
+}
+
+.btn-secondary:hover {
+  background-color: gray;
+  border-color: gray;
+}
+
+.btn-primary:active {
+  background:rgb(65, 135, 75) !important;
+  border-color: rgb(65, 135, 75) !important;
+  }
+
+.btn-primary:disabled {
+  background:rgb(235, 175, 65) !important;
+  border-color: rgb(235, 175, 65) !important;
+}
+
+#main-container {
+  margin-bottom: 50px;
+  margin-top: 75px;
+}
+
+#signature{
+	text-align:center;
+  margin-bottom: -15px;
+  margin-top: 50px;
+}
+
+.alert-info {
+  background-color: #f5f5f5;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+.navbar {
+  margin-top: 5px;
+}
+
+.card-title {
+  text-align: center;
+  margin: auto;
+}
