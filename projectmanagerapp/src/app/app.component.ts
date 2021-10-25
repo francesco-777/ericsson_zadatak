@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public projects: Project[];
   public editProject: Project;
   public deleteProject: Project;
+  title: any;
 
   constructor(private projectService: ProjectService) {}
 
@@ -108,4 +109,5 @@ export class AppComponent implements OnInit {
     container.appendChild(button);
     button.click();
   }
+
 }

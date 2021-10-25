@@ -15,23 +15,74 @@
   </div>
 </nav>
 
-<div class="container" id="main-container">
-    <div class="row">
-        <div *ngFor="let project of projects" class="col-md-6 col-xl-4">
-            <div class="card m-b-30">
-                <div class="card-body row">
-                    <div class="card-title mb-0">
-                        <h3>{{project?.title}}</h3>
+<div class="container clearfix" id="main-container">
+    <div class="">
+        <div class="col-4 column">
+            <h2><strong>To do</strong></h2>
+            <div *ngFor="let project of projects">
+                <div *ngIf="project?.status=='TODO'" class="">
+                    <div class="card m-b-30">
+                        <div class="card-body row">
+                            <div class="card-title mb-0">
+                                <h3>{{project?.title}}</h3>
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <p class="list-group-item">{{project?.desc}}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="float-right btn-group btn-group-sm">
+                                <a (click)="onOpenModal(project, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a (click)="onOpenModal(project, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="list-group list-group-flush">
-                    <p class="list-group-item">{{project?.desc}}</p>
-                    <p class="list-group-item"><b>{{project?.status}}</b></p>
+            </div>
+        </div>
+        <div class="col-4 column">
+            <h2><strong>Doing</strong></h2>
+            <div *ngFor="let project of projects">
+                <div *ngIf="project?.status=='DOING'" class="">
+
+                    <div class="card m-b-30">
+                        <div class="card-body row">
+                            <div class="card-title mb-0">
+                                <h3>{{project?.title}}</h3>
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <p class="list-group-item">{{project?.desc}}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="float-right btn-group btn-group-sm">
+                                <a (click)="onOpenModal(project, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a (click)="onOpenModal(project, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="float-right btn-group btn-group-sm">
-                        <a (click)="onOpenModal(project, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                        <a (click)="onOpenModal(project, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+            </div>
+        </div>
+        <div class="col-4 column">
+            <h2><strong>Done</strong></h2>
+            <div *ngFor="let project of projects">
+                <div *ngIf="project?.status=='DONE'" class="">
+                    <div class="card m-b-30">
+                        <div class="card-body row">
+                            <div class="card-title mb-0">
+                                <h3>{{project?.title}}</h3>
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <p class="list-group-item">{{project?.desc}}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="float-right btn-group btn-group-sm">
+                                <a (click)="onOpenModal(project, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a (click)="onOpenModal(project, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +108,7 @@
           </div>
           <div class="form-group">
             <label for="desc">Description</label>
-            <input type="text" ngModel name="desc" class="form-control" id="desc" placeholder="Desc" required>
+            <input type="text" ngModel name="desc" class="form-control" id="desc" placeholder="Description" required>
           </div>
           <div class="form-group">
             <label for="status">Status</label>
@@ -120,7 +171,7 @@
 <!-- Delete Project Modal -->
 <div class="modal fade" id="deleteProjectModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-     <div class="modal-content">
+    <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="deleteModelLabel">Delete Project</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -128,13 +179,13 @@
             </button>
         </div>
         <div class="modal-body">
-           <p>Are you sure you want to delete project {{deleteProject?.title}}?</p>
-           <div class="modal-footer">
+          <p>Are you sure you want to delete project {{deleteProject?.title}}?</p>
+          <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               <button (click)="onDeleteProject(deleteProject.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
-           </div>
-        </div>
-     </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -143,10 +194,10 @@
 <div *ngIf="projects?.length == 0">
     <div class="alert alert-info" role="alert">
         <h4 class="alert-heading">NO PROJECTS!</h4>
-        <p>No Projects found.</p>
+        <p>There were no Projects found.</p>
     </div>
 </div>
 
 <div id="signature">
-  <p>Zadatak za Ericsson Nikola Tesla d.d. 2021 &copy; Project Manager. Developed by Fran Anušić.</p>
+    <p>Zadatak za Ericsson Nikola Tesla d.d. 2021 &copy; Project Manager. Developed by Fran Anušić.</p>
 </div>
